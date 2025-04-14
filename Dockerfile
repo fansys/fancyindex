@@ -1,4 +1,4 @@
-FROM nginx:1.21
+FROM nginx
 LABEL maintainer "fraoustin@gmail.com"
 
 ENV SET_CONTAINER_TIMEZONE false 
@@ -36,7 +36,7 @@ RUN chmod +x /usr/bin/rmauth
 # add theme
 RUN mkdir /theme
 WORKDIR /theme
-RUN git clone https://github.com/fraoustin/Nginx-Fancyindex-Theme.git
+RUN git clone https://github.com/Naereen/Nginx-Fancyindex-Theme.git
 ENV COLOR "blue" 
 
 RUN mkdir /share
