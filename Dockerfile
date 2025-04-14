@@ -1,9 +1,9 @@
-FROM nginx
-LABEL maintainer "fraoustin@gmail.com"
+FROM nginx:1.22.1
+LABEL maintainer="cheney256@163.com"
 
-ENV SET_CONTAINER_TIMEZONE false 
-ENV CONTAINER_TIMEZONE ""
-ENV DISABLE_AUTH false
+ENV SET_CONTAINER_TIMEZONE=false 
+ENV CONTAINER_TIMEZONE=""
+ENV DISABLE_AUTH=true
 
 # manage user www-data
 RUN usermod -u 1000 www-data
@@ -37,13 +37,12 @@ RUN chmod +x /usr/bin/rmauth
 RUN mkdir /theme
 WORKDIR /theme
 RUN git clone https://github.com/Naereen/Nginx-Fancyindex-Theme.git
-ENV COLOR "blue" 
 
 RUN mkdir /share
 VOLUME /share
 
-ENV WEBUSER user
-ENV WEBPASSWORD pass
+ENV WEBUSER=user
+ENV WEBPASSWORD=pass
 
 EXPOSE 80
 
